@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row well" style="margin-top: 40px;">
-            <form method="post" v-on:submit.prevent="store" class="form-horizontal" id="addComponent" role="form">
+            <form method="post" v-on:submit.prevent="store" class="form-horizontal col-sm-12" id="addComponent" role="form">
 
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label"> First Name </label>

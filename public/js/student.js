@@ -3890,7 +3890,7 @@ var render = function() {
         _c(
           "form",
           {
-            staticClass: "form-horizontal",
+            staticClass: "form-horizontal col-sm-12",
             attrs: { method: "post", id: "addComponent", role: "form" },
             on: {
               submit: function($event) {
@@ -4403,7 +4403,7 @@ var render = function() {
         _c(
           "form",
           {
-            staticClass: "form-horizontal",
+            staticClass: "form-horizontal col-sm-12",
             attrs: { method: "post", id: "editComponent", role: "form" },
             on: {
               submit: function($event) {
@@ -4874,7 +4874,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-sm-6 col-sm-offset-3" }, [
+      _c("div", { staticClass: "col-sm-2" }, [
         _c(
           "button",
           {

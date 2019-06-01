@@ -1,42 +1,41 @@
 <template>
     <div class="container">
-        <div class="row well" style="margin-top: 40px;">
-            <form method="post" v-on:submit.prevent="store" class="form-horizontal" id="addComponent" role="form">
-
-                 <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label"> First Name </label>
-                    <div class="col-sm-9">
+        <div class="row">
+            <form method="post" v-on:submit.prevent="store" class="form-horizontal col-sm-12" id="addComponent" role="form">
+                 <div class="row">
+                    <div class="col-sm-4">
+                      <label for="name" class="col-sm-4 control-label"> First Name </label>
                       <input type="text" v-model="form.fname" class="form-control" placeholder="First Name">
                        <small class="help-block" v-if="(errors.hasOwnProperty('fname'))" style="color: red;"> {{ (errors.hasOwnProperty('fname')) ? errors.fname[0] :'' }} </small>
                     </div>
                   </div> 
 
-                <div class="form-group">
-                    <label for="name" class="col-sm-3 control-label"> Last Name </label>
-                    <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-4">
+                      <label for="name" class="col-sm-4 control-label"> Last Name </label>
                       <input type="text" v-model="form.lname" class="form-control" placeholder="Last Name">
                        <small class="help-block" v-if="(errors.hasOwnProperty('lname'))" style="color: red;"> {{ (errors.hasOwnProperty('lname')) ? errors.lname[0] :'' }} </small>
                     </div>
                   </div> 
 
-                <div class="form-group">
-                    <label for="about" class="col-sm-3 control-label"> Mobile </label>
-                    <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="about" class="col-sm-4 control-label"> Mobile </label>
                         <input type="text" v-model="form.mobile" class="form-control" placeholder="Mobile">
                          <small class="help-block" v-if="(errors.hasOwnProperty('mobile'))" style="color: red;"> {{ (errors.hasOwnProperty('mobile')) ? errors.mobile[0] :'' }} </small>
                     </div>
                 </div> 
 
-                 <div class="form-group">
-                    <label for="about" class="col-sm-3 control-label"> Email </label>
-                    <div class="col-sm-9">
+                 <div class="row">
+                    <div class="col-sm-4">
+                        <label for="about" class="col-sm-4 control-label"> Email </label>
                         <input type="text" v-model="form.email" class="form-control" placeholder="Email">
                          <small class="help-block" v-if="(errors.hasOwnProperty('email'))" style="color: red;"> {{ (errors.hasOwnProperty('email')) ? errors.email[0] :'' }} </small>
                     </div>
                 </div>
 
-                  <div class="form-group">
-                    <div class="col-sm-6 col-sm-offset-3">
+                  <div class="row">
+                    <div class="col-sm-2">
                         <button class="btn btn-success btn-block" type="submit"> Save </button>
                     </div>
                   </div>

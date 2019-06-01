@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row well" style="margin-top: 40px;">
-            <form method="post" v-on:submit.prevent="update(form.id)" class="form-horizontal" id="editComponent" role="form">
+            <form method="post" v-on:submit.prevent="update(form.id)" class="form-horizontal col-sm-12" id="editComponent" role="form">
 
                  <div class="form-group">
                     <label for="name" class="col-sm-3 control-label"> First Name </label>
@@ -70,7 +70,7 @@
 
 
                   <div class="form-group">
-                    <div class="col-sm-6 col-sm-offset-3">
+                    <div class="col-sm-2">
                         <button class="btn btn-success btn-block" type="submit"> Update </button>
                     </div>
                   </div>

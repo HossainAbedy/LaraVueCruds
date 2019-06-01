@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
 use App\Employee;
+use App\Mail\Welcome;
+use App\Events\EmployeeEvent;
 use Session;
 use DB;
 use Carbon\Carbon;
@@ -39,25 +42,29 @@ class EmployeeController extends Controller
                 'mobile.required' => 'The Mobile field is required.',
             ]);
 
-        try {
-            DB::beginTransaction();
+        // try {
+        DB::beginTransaction();
 
-        $data = [
+        // $data = [
+        //     'fname' => $request->fname,
+        //     'lname' => $request->lname,
+        //     'email' => $request->email,
+        //     'mobile' => $request->mobile,
+        // ];
+        $employee=Employee::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
             'mobile' => $request->mobile,
-        ];
-
-
-        Employee::create($data);
-
-        DB::commit();
+            ]);
+        DB::commit();  
+            event(new EmployeeEvent($employee));
             return response()->json(['status' => 'success', 'message' => 'Save Employee info']);
-        } catch (\Exception $e) {
-            DB::rollback();
-            return response()->json(['status' => 'error', 'message' => 'Something Error Found !, Please try again']);
-        }
+                  
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     return response()->json(['status' => 'error', 'message' => 'Something Error Found !, Please try again']);
+        // }
 
     }
 
@@ -94,9 +101,9 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required',
+            'fname'  => 'required',
+            'lname'  => 'required',
+            'email'  => 'required',
             'mobile' => 'required|numeric',
         ], [
             'fname.required' => 'The Name field is required.',
@@ -108,9 +115,9 @@ class EmployeeController extends Controller
         DB::beginTransaction();
    
     $data = [
-        'fname' => $request->fname,
-        'lname' => $request->lname,
-        'email' => $request->email,
+        'fname' =>  $request->fname,
+        'lname' =>  $request->lname,
+        'email' =>  $request->email,
         'mobile' => $request->mobile,
       
     ];
